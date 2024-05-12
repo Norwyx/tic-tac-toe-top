@@ -96,16 +96,5 @@ const gameController = (() => {
         isOver = false
     }
 
-    console.log(getCurrentPlayerSign())
-    playRound('3')
-    console.log(getCurrentPlayerSign())
-    playRound('3')
-    console.log(getCurrentPlayerSign())
-    playRound('4')
-
-    console.log(isOver)
-    console.log(round)
-    console.log(gameBoard.board)
-
     return { playRound, getIsOver, reset }
 })()
