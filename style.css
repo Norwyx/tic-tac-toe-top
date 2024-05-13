@@ -143,4 +143,10 @@ h1 {
         width: 400px;
         height: 400px;
     }
+
+    .field {
+        width: 132px;
+        height: 132px;
+        font-size: 5rem;
+    }
 }
