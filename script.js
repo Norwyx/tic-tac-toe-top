@@ -46,16 +46,19 @@ const gameController = (() => {
         gameBoard.setField(getCurrentPlayerSign(), index)
 
         if (checkWinner()) {
+            displayController.resultMessage(getCurrentPlayerSign())
             isOver = true;
             return
         }
 
         if (round === 9) {
+            displayController.resultMessage("Draw")
             isOver = true
             return
         }
 
         round++
+        displayController.changeMessage(`Player ${getCurrentPlayerSign()}'s turn`)
     }
 
     const checkWinner = () => {
@@ -100,5 +103,40 @@ const gameController = (() => {
 })()
 
 const displayController = (() => {
-    
+    const messageDiv = document.querySelector('.message')
+    const fieldElements = document.querySelectorAll('.field')
+    const resetBtn = document.querySelector('.restart-btn')
+
+    fieldElements.forEach((field) => field.addEventListener('click', (e) => {
+        if (gameController.getIsOver() || e.target.textContent !== '') return
+        gameController.playRound(e.target.dataset.index)
+        updateGameboard()
+    }))
+
+    resetBtn.addEventListener('click', () => {
+        gameBoard.reset()
+        gameController.reset()
+        updateGameboard()
+        changeMessage("Player X's Turn")
+    })
+
+    const updateGameboard = () => {
+        for (let i = 0; i < fieldElements.length; i++) {
+            fieldElements[i].textContent = gameBoard.getField(i)
+        }
+    }
+
+    const changeMessage = (message) => {
+        messageDiv.textContent = message
+    }
+
+    const resultMessage = (winner) => {
+        if (winner === "Draw") {
+            changeMessage("It's a draw!")
+        } else {
+            changeMessage(`Player ${winner} has won!`)
+        }
+    } 
+
+    return { changeMessage, resultMessage }
 })()

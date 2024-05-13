@@ -110,6 +110,13 @@ h1 {
 
 .field {
     border: 1px solid var(--gray-clr);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4rem;
+    width: 104px;
+    height: 104px;
 }
 
 .field:hover {
