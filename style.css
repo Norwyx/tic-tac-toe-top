@@ -11,7 +11,6 @@ button, input {
     text-decoration: none;
     outline: none;
     font-family: inherit;
-    text-align: left;
     font-size: inherit;
 }   
 
@@ -58,4 +57,76 @@ REUSABLES
 
 .hidden {
     display: none;
+}
+
+/* 
+Variables
+*/
+
+:root {
+    --gray-clr: #4b5563;
+    --white-clr: #f8fafc;
+    --black-clr: #020617;
+    --accent-clr: #3b82f6;
+    --accent-clr-light: #85b4ff;
+
+    --shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+/* 
+Main Styles
+*/
+
+body {
+    font-family: system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    min-height: 100vh;
+    background-color: var(--white-clr);
+}
+
+h1 {
+    color: var(--accent-clr);
+    font-size: clamp(2rem, 12vw + 1rem, 5rem);
+    font-weight: 900;
+    margin-bottom: 1rem;
+}
+
+.message {
+    font-size: 1.5rem;
+}
+
+.main {
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.gameboard {
+    grid-template-columns: repeat(3, 1fr);
+    background-color: var(--white-clr);
+    width: 316px;
+    height: 316px;
+    box-shadow: var(--shadow);
+    border: 2px solid var(--black-clr);
+}
+
+.field {
+    border: 1px solid var(--gray-clr);
+}
+
+.field:hover {
+    background-color: var(--accent-clr-light);
+}
+
+.restart-btn {
+    background-color: var(--accent-clr);
+    color: var(--white-clr);
+    border-radius: 5px;
+    padding: .5rem 1.5rem;
+    font-weight: 700;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: filter .2s ease-in-out;
+}
+
+.restart-btn:hover {
+    filter: brightness(90%);
 }

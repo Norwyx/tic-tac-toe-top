@@ -7,10 +7,11 @@
     <link rel="stylesheet" href="style.css">
     <script defer src="script.js"></script>
 </head>
-<body>
-    <h1>Tic-Tac-Toe</h1>
-    <p class="message">Player X's turn</p>
-    <div class="gameboard">
+<body class="flex center column">
+    <h1 class="text-center">Tic-Tac-Toe</h1>
+    <p class="message text-center">Player X's turn</p>
+    <div class="main flex column center">
+        <div class="gameboard grid">
         <div class="field" data-index="0"></div>
         <div class="field" data-index="1"></div>
         <div class="field" data-index="2"></div>
@@ -22,5 +23,6 @@
         <div class="field" data-index="8"></div>
     </div>
     <button class="restart-btn">Restart</button>
+    </div>
 </body>
 </html>
